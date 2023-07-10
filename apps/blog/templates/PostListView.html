@@ -1,0 +1,11 @@
+<h1>List Posts</h1>
+
+{% for p in object_list %}
+
+<article>
+  <ul>
+    <li>{{p.title}}</li>
+    <p>{{p.content}}</p>
+  </ul>
+</article>
+{% endfor %}
