@@ -1,11 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
 <h1>List Posts</h1>
 
-{% for p in object_list %}
+<ul>
+  {% for p in object_list %}
+  <li><a href="{% url 'detail_post' p.pk %}">{{p.title}} - {{p.author}}</a></li>
+  <p>{{p.date}}</p>
+  <p>{{p.content}}</p>
+  <img src="{{p.image.url}}" />
+  {% endfor %}
+</ul>
 
-<article>
-  <ul>
-    <li>{{p.title}}</li>
-    <p>{{p.content}}</p>
-  </ul>
-</article>
-{% endfor %}
+{% endblock %}

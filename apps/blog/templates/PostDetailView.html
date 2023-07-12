@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{{ post.title }}</h1>
+<p>{{post.date}}</p>
+<p>{{ post.content }}</p>
+<img src="{{post.image.url}}" />
+
+<br />
+
+<h2>Comments</h2>
+<br />
+<a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+<br />
+<br />
+
+{% for comment in post.comments.all %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{comment.name}}</h5>
+    <p class="card-text">{{comment.body}}</p>
+  </div>
+</div>
+<br />
+
+{% endfor %} {% endblock %}
