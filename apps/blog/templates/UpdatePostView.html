@@ -1,11 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Update Post</h1>
+<h1>Update Post {{object}}</h1>
 
-<form method="put">
-  <input type="text" name="title" value="{{post.title}}" />
-  <textarea name="content">{{post.content}}</textarea>
-  <button type="submit">Update</button>
-</form>
+<div class="form-group">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{form.as_p}}
+    <button class="btn btn-secondary" type="submit">Update</button>
+  </form>
+</div>
 
 {% endblock %}

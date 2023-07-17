@@ -1,0 +1,12 @@
+<h1>User List</h1>
+<div class="card">
+  <ul class="card-body">
+    <br />
+    {% for user in users %}
+
+    <li>{{user.first_name}} - {{user.email}}</li>
+
+    {% endfor %}
+    <br />
+  </ul>
+</div>

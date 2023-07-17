@@ -3,13 +3,23 @@
 <h1>{{ post.title }}</h1>
 <p>{{post.date}}</p>
 <p>{{ post.content }}</p>
-<img src="{{post.image.url}}" />
 
+<div class="card">
+  <img src="{{post.image.url}}" />
+</div>
+
+<button class="btn btn-secondary">
+  <a class="btn" href="{% url 'blog:update_post' post.pk %}">Update Post</a>
+</button>
+<button class="btn btn-secondary">
+  <a class="btn" href="{% url 'blog:delete_post' post.pk %}">Delete Post</a>
+</button>
 <br />
-
+<br />
+<br />
 <h2>Comments</h2>
 <br />
-<a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+<a href="{% url 'blog:add_comment' post.pk %}">Add Comment</a>
 <br />
 <br />
 
@@ -18,6 +28,7 @@
   <div class="card-body">
     <h5 class="card-title">{{comment.name}}</h5>
     <p class="card-text">{{comment.body}}</p>
+    <p class="card-text">{{comment.date}}</p>
   </div>
 </div>
 <br />
